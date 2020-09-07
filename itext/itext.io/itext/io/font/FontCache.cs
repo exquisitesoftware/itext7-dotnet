@@ -72,8 +72,12 @@ namespace iText.IO.Font {
 
         static FontCache() {
             try {
+                
                 LoadRegistry();
-                foreach (String font in registryNames.Get(FONTS_PROP)) {
+
+                var fonts = registryNames.Get(FONTS_PROP);
+                if (fonts == null) return;
+                foreach (String font in fonts) {
                     allCidFonts.Put(font, ReadFontProperties(font));
                 }
             }
@@ -209,7 +213,8 @@ namespace iText.IO.Font {
 
         private static void LoadRegistry() {
             Stream resource = ResourceUtil.GetResourceStream(FontResources.CMAPS + CJK_REGISTRY_FILENAME);
-            try {
+            try
+            {
                 Properties p = new Properties();
                 p.Load(resource);
                 foreach (KeyValuePair<Object, Object> entry in p) {

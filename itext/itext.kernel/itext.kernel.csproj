@@ -58,13 +58,13 @@
     <Compile Include="KernelExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\itext.io\itext.io.csproj">
-      <Project>{CEE5E7E1-1BF0-4BE1-9941-903262CE2F83}</Project>
-      <Name>itext.io</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\itext.io\itext.io.netstandard.csproj">
+      <Project>{D15E2A05-222F-4387-8776-764C71756C7D}</Project>
+      <Name>itext.io.netstandard</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
